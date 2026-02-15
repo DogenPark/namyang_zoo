@@ -893,3 +893,32 @@ button{ font: inherit; color: inherit; }
   .hScroll{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .igRail{ grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
+
+/* ✅ 진짜 모바일(폰)에서는 2컬럼 금지: 1컬럼으로 쌓기 */
+@media (max-width: 600px){
+
+  .board{
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .board__side{
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* 가로 레일은 폰에서 다시 “가로 스크롤”이 보기 편함 */
+  .hScroll{
+    display:flex !important;
+    overflow:auto !important;
+    scroll-snap-type: x mandatory;
+  }
+  .post{
+    flex: 0 0 78vw;           /* 한 번에 1장 정도 크게 */
+  }
+  .post__img img{ height: 220px; }
+
+  /* 태그칩/글씨 살짝 줄이기 */
+  body{ font-size: 13px; }
+  .tagChip{ font-size: 12px; padding: 7px 10px; }
+}
