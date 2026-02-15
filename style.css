@@ -37,7 +37,11 @@ body{
 }
 
 a{ color: inherit; text-decoration: none; }
-img{ max-width:100%; display:block; }
+img{
+  max-width:100%;
+  display:block;
+  image-orientation: from-image; /* ✅ 폰사진 EXIF 방향 적용 */
+}
 button{ font: inherit; color: inherit; }
 
 .wrap{
@@ -180,6 +184,7 @@ button{ font: inherit; color: inherit; }
 
 /* ✅ 핵심: "이미지 박스"를 만들어서 그 안에서 contain */
 .hero__slide img{
+  image-orientation: from-image;
   position: relative;
   z-index: 2;
 
@@ -653,6 +658,19 @@ button{ font: inherit; color: inherit; }
 }
 .mapCard__foot{ padding: 12px 14px 14px; }
 
+.mapFrame{ position: relative; }
+
+.mapOpen{
+  position:absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(20,20,30,.10);
+  background: rgba(255,255,255,.78);
+  box-shadow: var(--shadow2);
+  font-weight: 700;
+}
 /* ===== Footer ===== */
 .footer{
   margin-top: 10px;
@@ -897,6 +915,9 @@ button{ font: inherit; color: inherit; }
 /* ✅ 진짜 모바일(폰)에서는 2컬럼 금지: 1컬럼으로 쌓기 */
 @media (max-width: 600px){
 
+  .hero__slide img{
+    transform: none;     /* ✅ 모바일에서 확대 제거(안정) */
+    width: 96vw;         /* ✅ 대신 너비만 살짝 키움 */
   .board{
     grid-template-columns: 1fr !important;
     gap: 12px;

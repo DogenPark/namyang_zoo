@@ -233,13 +233,21 @@
         </div>
 
         <div class="mapFrame" aria-label="지도">
-          <iframe
-            title="남양주 동물보육원 지도"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://map.naver.com/p/entry/place/2053412555?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202602151750&locale=ko&svcName=map_pcv5">
-          </iframe>
-        </div>
+  <!-- ✅ Google Maps embed (모바일에서도 안정적) -->
+  <iframe
+    title="남양주 동물보육원 지도"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EB%82%A8%EC%96%91%EC%A3%BC%EC%8B%9C%20%EC%A7%84%EA%B1%B4%EC%9D%8D%20%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8&output=embed">
+  </iframe>
+
+  <!-- ✅ 네이버지도는 버튼으로 열기(iframe은 막혀서) -->
+  <a class="mapOpen"
+     href="https://map.naver.com/p/search/%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8"
+     target="_blank" rel="noopener">
+    네이버지도에서 열기 →
+  </a>
+</div>
 
         <div class="mapCard__foot">
           <span class="muted">진건읍 진건오남로 105번길 16 202호, Namyangju</span>
