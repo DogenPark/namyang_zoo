@@ -10,9 +10,79 @@
   <link rel="apple-touch-icon" href="images/logo.png" />
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ index.html에서만 추가 오버라이드 (모바일 사진 3개씩 + 안잘림) -->
+  <style>
+    /* 사진 EXIF 방향(세로사진 회전 문제 방지) */
+    img { image-orientation: from-image; }
+
+    /* ✅ V-log 사진: 3개씩 그리드로 쭉 */
+    .photoGrid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    /* 카드(ig 스타일 재사용) */
+    .photoGrid .ig{
+      width:100%;
+      border-radius: 18px;
+      border: 1px solid rgba(20,20,30,.10);
+      background: rgba(255,255,255,.70);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
+    .photoGrid .ig__img{
+      width:100%;
+      border:0;
+      padding:0;
+      cursor:pointer;
+      background: transparent;
+    }
+
+    /* ✅ 핵심: 사진 안잘리게 */
+    .photoGrid .ig__img img{
+      width:100%;
+      height: 150px;          /* 필요하면 140~190 조절 */
+      object-fit: contain;    /* ✅ 절대 안 잘림 */
+      background: rgba(255,255,255,.70);
+      display:block;
+    }
+
+    /* 모바일(진짜 폰)에서는 사이드를 위로 올리고 1컬럼으로 */
+    @media (max-width: 600px){
+      .board{
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+      }
+      .board__side{
+        position: static !important;
+        top:auto !important;
+      }
+      .photoGrid .ig__img img{
+        height: 140px;
+      }
+    }
+
+    /* 지도 열기 버튼 */
+    .mapFrame{ position: relative; }
+    .mapOpen{
+      position:absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(20,20,30,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow2);
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="top"></div>
+  <div id="top"></div>
   <a class="skip" href="#stories">본문 바로가기</a>
 
   <!-- Header -->
@@ -50,23 +120,21 @@
   <section class="hero" aria-label="대표 이미지">
     <div class="hero__viewport">
       <div class="hero__track" id="heroTrack">
-       <div class="hero__slide" style="--hero-bg:url('images/hero1.jpg')"><img src="images/hero1.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero2.jpg')"><img src="images/hero2.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero3.jpg')"><img src="images/hero3.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero4.jpg')"><img src="images/hero4.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero5.jpg')"><img src="images/hero5.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero6.jpg')"><img src="images/hero6.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero7.jpg')"><img src="images/hero7.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero8.jpg')"><img src="images/hero8.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero9.jpg')"><img src="images/hero9.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero10.jpg')"><img src="images/hero10.jpg" alt="..."></div>
-<div class="hero__slide" style="--hero-bg:url('images/hero11.jpg')"><img src="images/hero11.jpg" alt="..."></div>
-
+        <div class="hero__slide" style="--hero-bg:url('images/hero1.jpg')"><img src="images/hero1.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero2.jpg')"><img src="images/hero2.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero3.jpg')"><img src="images/hero3.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero4.jpg')"><img src="images/hero4.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero5.jpg')"><img src="images/hero5.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero6.jpg')"><img src="images/hero6.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero7.jpg')"><img src="images/hero7.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero8.jpg')"><img src="images/hero8.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero9.jpg')"><img src="images/hero9.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero10.jpg')"><img src="images/hero10.jpg" alt="..."></div>
+        <div class="hero__slide" style="--hero-bg:url('images/hero11.jpg')"><img src="images/hero11.jpg" alt="..."></div>
       </div>
 
       <button class="hero__arrow hero__arrow--left" id="heroPrev" aria-label="이전 이미지">‹</button>
       <button class="hero__arrow hero__arrow--right" id="heroNext" aria-label="다음 이미지">›</button>
-
       <div class="hero__dots" id="heroDots" aria-label="슬라이드 표시"></div>
     </div>
 
@@ -82,7 +150,7 @@
     </div>
   </section>
 
-  <!-- Stories (Instagram + Blog blend) -->
+  <!-- Stories -->
   <main class="wrap" id="stories">
     <section class="section">
       <div class="section__head">
@@ -95,72 +163,19 @@
           <div class="panel">
             <div class="panel__title">태그로 보기</div>
             <div class="tagCloud" id="tagCloud"></div>
-            <div class="panel__hint">
-      
-            </div>
+            <div class="panel__hint"></div>
           </div>
 
-          <div class="panel">
-            <div class="panel__title">소개</div>
-            <p class="muted">
-              사랑과 돌봄이 머무는 곳,<br>
-               남양주 동물보육원<br>
-남양주동물보육원<br>
-보호가 필요한 동물들이 <br>
-다시 한 번 따뜻한 가족을 만날 수 있도록 돕는 공간입니다.<br><br>
-
-유기되거나 파양된 동물들이<br>
-상처를 회복하고, <br>
-믿음을 되찾아 새로운 삶을<br>
-시작할 수 있도록 <br>
-정성과 마음을 다한 돌봄을 제공합니다.<br><br>
-
-우리는 단순한 보호소를 넘어,<br>
-반려동물의 성격과 건강 상태를<br>
-고려한 맞춤형 케어,<br>
-심리 회복 프로그램,<br>
-책임 있는 입양 시스템을 통해 <br>
-반려동물과 새로운 가족 모두가<br>
-행복해질 수 있는<br>
-연결고리가 되고자 합니다.<br><br>
-
-작은 생명의 소중함을<br>
-지키는 이곳에서,<br>
-우리는 오늘도 ‘또 하나의 가족’을<br>
-기다리는 아이들과<br>
-함께합니다.
-            </p>
-          </div>
+          <!-- ✅ 소개 패널 삭제됨 -->
         </aside>
 
         <div class="board__main">
-          <!-- Featured row (Blog-like list) -->
           <div class="rowHead">
-            <h3>최근 이야기</h3>
-            <div class="rowNav">
-              <button class="miniArrow" data-scroll="featured" data-dir="-1" aria-label="이전">‹</button>
-              <button class="miniArrow" data-scroll="featured" data-dir="1" aria-label="다음">›</button>
-            </div>
+            <h3>사진 모아보기</h3>
           </div>
 
-          <div class="hScroll" id="featuredRow" data-kind="carousel" aria-label="최근 이야기 캐러셀">
-            <!-- JS inject -->
-          </div>
-
-          <!-- Grid (Instagram-like) -->
-          <div class="rowHead mt">
-            <h3>모아보기</h3>
-            <div class="rowNav">
-              <button class="miniArrow" data-scroll="grid" data-dir="-1" aria-label="이전">‹</button>
-              <button class="miniArrow" data-scroll="grid" data-dir="1" aria-label="다음">›</button>
-            </div>
-          </div>
-
-          <div class="igWrap" aria-label="인스타그램 스타일 모아보기">
-            <div class="igRail" id="igRail" data-kind="carousel">
-              <!-- JS inject -->
-            </div>
-          </div>
+          <!-- ✅ 사진 3개씩 그리드 -->
+          <div class="photoGrid" id="photoGrid" aria-label="사진 그리드"></div>
         </div>
       </div>
     </section>
@@ -174,10 +189,8 @@
 
       <div class="rotator">
         <div class="rotator__stage" id="rotatorStage" aria-label="카드 로테이터"></div>
-
         <button class="rotArrow rotArrow--left" id="rotPrev" aria-label="이전 카드">‹</button>
         <button class="rotArrow rotArrow--right" id="rotNext" aria-label="다음 카드">›</button>
-
         <div class="rotator__hint">사진을 누르면 크게 볼 수 있어요</div>
       </div>
     </section>
@@ -199,7 +212,8 @@
           <span class="contactCard__go">바로가기 →</span>
         </a>
 
-        <a class="contactCard" href="https://open.kakao.com/o/soxdPfIh?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAP-bShleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadaddT434c8JNuzH4sdL38HF_jwCwEODj_RY6QIYBl0MPw_MMKB2DXNylEymw_aem_Roe6QMx29OIKeBQsFIlipw" target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅 열기">
+        <a class="contactCard" href="https://open.kakao.com/o/soxdPfIh?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAP-bShleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadaddT434c8JNuzH4sdL38HF_jwCwEODj_RY6QIYBl0MPw_MMKB2DXNylEymw_aem_Roe6QMx29OIKeBQsFIlipw"
+           target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅 열기">
           <div class="contactCard__icon">💬</div>
           <div class="contactCard__txt">
             <strong>카카오톡 오픈채팅</strong>
@@ -233,21 +247,21 @@
         </div>
 
         <div class="mapFrame" aria-label="지도">
-  <!-- ✅ Google Maps embed (모바일에서도 안정적) -->
-  <iframe
-    title="남양주 동물보육원 지도"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EB%82%A8%EC%96%91%EC%A3%BC%EC%8B%9C%20%EC%A7%84%EA%B1%B4%EC%9D%8D%20%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8&output=embed">
-  </iframe>
+          <!-- ✅ 모바일에서 항상 뜨는 Google Maps embed -->
+          <iframe
+            title="남양주 동물보육원 지도"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EB%82%A8%EC%96%91%EC%A3%BC%EC%8B%9C%20%EC%A7%84%EA%B1%B4%EC%9D%8D%20%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8&output=embed">
+          </iframe>
 
-  <!-- ✅ 네이버지도는 버튼으로 열기(iframe은 막혀서) -->
-  <a class="mapOpen"
-     href="https://map.naver.com/p/search/%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8"
-     target="_blank" rel="noopener">
-    네이버지도에서 열기 →
-  </a>
-</div>
+          <!-- ✅ 네이버지도는 iframe이 막혀서 버튼으로 열기 -->
+          <a class="mapOpen"
+             href="https://map.naver.com/p/search/%EC%A7%84%EA%B1%B4%EC%98%A4%EB%82%A8%EB%A1%9C%20105%EB%B2%88%EA%B8%B8%2016%20202%ED%98%B8"
+             target="_blank" rel="noopener">
+            네이버지도에서 열기 →
+          </a>
+        </div>
 
         <div class="mapCard__foot">
           <span class="muted">진건읍 진건오남로 105번길 16 202호, Namyangju</span>
@@ -266,9 +280,9 @@
         </div>
       </div>
 
-   <div class="footer__links">
-  <a href="#top">위로</a>
-  <a href="#contact">문의</a>
+      <div class="footer__links">
+        <a href="#top">위로</a>
+        <a href="#contact">문의</a>
       </div>
     </div>
   </footer>
@@ -284,7 +298,7 @@
   </div>
 
   <script>
-  // ===== DATA (여기만 바꾸면 게시물/태그/문구가 바뀜) =====
+  // ===== DATA =====
   const POSTS = [
     { id:"b1",  img:"images/blog1.jpg",  cat:"daily", title:"포근한 낮잠",          tags:["#일상","#포근","#말티즈"] },
     { id:"b2",  img:"images/blog2.jpg",  cat:"daily", title:"오늘의 휴식",          tags:["#일상","#휴식"] },
@@ -310,8 +324,6 @@
   const $ = (s, el=document) => el.querySelector(s);
   const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
 
-  function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
-
   // ===== Mobile nav =====
   const navBtn = $("#navBtn");
   const mobileNav = $("#mobileNav");
@@ -327,7 +339,7 @@
     mobileNav.setAttribute("aria-hidden","true");
   }));
 
-  // ===== Hero slider (auto 3s + arrows + swipe) =====
+  // ===== Hero slider =====
   const heroTrack = $("#heroTrack");
   const heroSlides = $$(".hero__slide", heroTrack);
   const heroDots = $("#heroDots");
@@ -343,18 +355,15 @@
       restartHero();
     }));
   }
-
   function goHero(i){
     heroIdx = (i + heroSlides.length) % heroSlides.length;
     heroTrack.style.transform = `translateX(${-heroIdx*100}%)`;
     renderHeroDots();
   }
-
   function restartHero(){
     clearInterval(heroTimer);
     heroTimer = setInterval(() => goHero(heroIdx+1), 3000);
   }
-
   $("#heroPrev").addEventListener("click", () => { goHero(heroIdx-1); restartHero(); });
   $("#heroNext").addEventListener("click", () => { goHero(heroIdx+1); restartHero(); });
 
@@ -378,38 +387,31 @@
   goHero(0);
   restartHero();
 
-  // ===== Posts rendering (featured + ig rail) =====
-  const featuredRow = $("#featuredRow");
-  const igRail = $("#igRail");
+  // ===== Posts rendering (photo grid) =====
+  const photoGrid = $("#photoGrid");
   const tagCloud = $("#tagCloud");
 
-  function postCard(post, variant="featured"){
-    const tags = post.tags.map(t => `<span class="tag">${t}</span>`).join("");
+  function gridCard(post){
     const badge = post.cat === "walk" ? "산책이야기" : "일상이야기";
     return `
-      <article class="${variant==="featured" ? "post" : "ig"}" data-id="${post.id}" data-cat="${post.cat}" data-tags="${post.tags.join(" ")}">
-        <button class="${variant==="featured" ? "post__img" : "ig__img"}" data-open="${post.img}" data-cap="${badge} · ${post.title}">
+      <article class="ig" data-id="${post.id}" data-cat="${post.cat}" data-tags="${post.tags.join(" ")}">
+        <button class="ig__img" data-open="${post.img}" data-cap="${badge} · ${post.title}">
           <img src="${post.img}" alt="${post.title}">
         </button>
-
-        <div class="${variant==="featured" ? "post__body" : "ig__body"}">
-          <div class="${variant==="featured" ? "post__meta" : "ig__meta"}">
+        <div class="ig__body">
+          <div class="ig__meta">
             <span class="badge ${post.cat==="walk"?"is-walk":"is-daily"}">${badge}</span>
             <span class="muted dotSep">·</span>
             <span class="muted">${post.title}</span>
           </div>
-          <div class="${variant==="featured" ? "post__tags" : "ig__tags"}">${tags}</div>
+          <div class="ig__tags">${post.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
         </div>
       </article>
     `;
   }
 
   function renderPosts(){
-    // Featured: blog-like bigger cards
-    featuredRow.innerHTML = POSTS.map(p => postCard(p,"featured")).join("");
-
-    // IG rail: smaller cards
-    igRail.innerHTML = POSTS.map(p => postCard(p,"ig")).join("");
+    photoGrid.innerHTML = POSTS.map(p => gridCard(p)).join("");
 
     // Tags
     const allTags = new Map();
@@ -435,7 +437,7 @@
     });
   }
 
-  // ===== Filters: category chips + tags =====
+  // ===== Filters =====
   let currentCat = "all";
   let currentTag = null;
 
@@ -456,7 +458,7 @@
       return okCat && okTag;
     }
 
-    [...featuredRow.children, ...igRail.children].forEach(el => {
+    [...photoGrid.children].forEach(el => {
       el.classList.toggle("is-hidden", !match(el));
     });
   }
@@ -467,21 +469,6 @@
 
   renderPosts();
   applyFilters("all", null);
-
-  // ===== Horizontal carousels arrows =====
-  function scrollByDir(el, dir){
-    const amt = Math.max(260, Math.round(el.clientWidth * 0.9));
-    el.scrollBy({ left: dir * amt, behavior: "smooth" });
-  }
-
-  $$("[data-scroll]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const kind = btn.dataset.scroll;
-      const dir = +btn.dataset.dir;
-      const el = kind === "featured" ? featuredRow : igRail;
-      scrollByDir(el, dir);
-    });
-  });
 
   // ===== Modal =====
   const modal = $("#modal");
@@ -509,7 +496,7 @@
     if(e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
   });
 
-   // ===== 3D Card Rotator (센터 1장 Coverflow: auto 3s + arrows + swipe) =====
+  // ===== 3D Card Rotator =====
   const stage = document.querySelector("#rotatorStage");
   let rotIdx = 0;
   let rotTimer = null;
@@ -524,7 +511,6 @@
       </button>
     `).join("");
 
-    // 모달 열기
     stack.querySelectorAll(".rotCard").forEach(btn => {
       btn.addEventListener("click", () => openModal(btn.dataset.open, btn.dataset.cap));
     });
@@ -563,7 +549,7 @@
   document.querySelector("#rotPrev").addEventListener("click", () => { rotGo(rotIdx - 1); rotRestart(); });
   document.querySelector("#rotNext").addEventListener("click", () => { rotGo(rotIdx + 1); rotRestart(); });
 
-  // swipe (모바일)
+  // swipe
   (function(){
     let startX=0, dx=0, touching=false;
     const box = stage.parentElement;
@@ -584,10 +570,7 @@
   rotRestart();
 
   // footer year
-  
   $("#year").textContent = new Date().getFullYear();
   </script>
 </body>
-
-
 </html>
