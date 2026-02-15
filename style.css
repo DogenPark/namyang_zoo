@@ -658,19 +658,7 @@ button{ font: inherit; color: inherit; }
 }
 .mapCard__foot{ padding: 12px 14px 14px; }
 
-.mapFrame{ position: relative; }
 
-.mapOpen{
-  position:absolute;
-  right: 12px;
-  bottom: 12px;
-  padding: 10px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(20,20,30,.10);
-  background: rgba(255,255,255,.78);
-  box-shadow: var(--shadow2);
-  font-weight: 700;
-}
 /* ===== Footer ===== */
 .footer{
   margin-top: 10px;
@@ -918,6 +906,7 @@ button{ font: inherit; color: inherit; }
   .hero__slide img{
     transform: none;     /* ✅ 모바일에서 확대 제거(안정) */
     width: 96vw;         /* ✅ 대신 너비만 살짝 키움 */
+  }
   .board{
     grid-template-columns: 1fr !important;
     gap: 12px;
@@ -942,4 +931,79 @@ button{ font: inherit; color: inherit; }
   /* 태그칩/글씨 살짝 줄이기 */
   body{ font-size: 13px; }
   .tagChip{ font-size: 12px; padding: 7px 10px; }
+}
+
+/* ===== Intro Page (V-log 위) ===== */
+.introPage{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 14px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(20,20,30,.10);
+  border-radius: calc(var(--r) + 10px);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.introPage__left h3{
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -.3px;
+}
+
+.introPage__left p{
+  margin: 0 0 14px;
+  line-height: 1.7;
+}
+
+.introPage__btns{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.introPage__right{
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(20,20,30,.08);
+  background: rgba(255,255,255,.55);
+}
+
+.introPage__right img{
+  width:100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover; /* 소개 이미지는 꽉 차게 */
+  display:block;
+}
+
+/* 모바일에서도 PC처럼 보이게 원하면 이 줄을 지우지 말고 유지 */
+@media (max-width: 760px){
+  .introPage{
+    grid-template-columns: 1fr; /* 모바일에서만 위아래로 */
+  }
+  .introPage__right img{
+    min-height: 220px;
+  }
+}
+.introPage__left{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+.introPage__btns{
+  justify-content:center;
+}
+
+/* ✅ 소개글(제목/문장/버튼) 무조건 가운데 정렬 */
+.introPage .introPage__left,
+.introPage .introPage__left *{
+  text-align: center !important;
+}
+
+.introPage .introPage__btns{
+  justify-content: center !important;
 }

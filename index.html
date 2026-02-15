@@ -149,7 +149,39 @@
       </div>
     </div>
   </section>
+<!-- Intro Section (V-log 위 소개 페이지) -->
+<section class="section" id="intro">
+  <div class="section__head">
+    <h2>소개</h2>
+    <p class="muted">사랑과 돌봄이 머무는 곳</p>
+  </div>
 
+  <div class="introPage">
+    <div class="introPage__left">
+      <h3>남양주 동물보육원</h3><br>
+      <p class="muted">
+        보호가 필요한 아이들이<br>
+        다시 한 번 따뜻한 가족을 만날 수 있도록<br>
+        돕는 공간입니다.<br>
+        유기되거나 파양된 동물들이<br>
+        상처를 회복하고 믿음을 되찾아
+        새로운 삶을 시작할 수 있도록<br>
+        정성과 마음을 다한 돌봄을 제공합니다.<br>
+        오시기 전에는 문의 연락 부탁드려요.
+      </p>
+
+      <div class="introPage__btns">
+        <a class="introBtn introBtn--primary" href="#contact">문의하기 →</a>
+        <a class="introBtn" href="#map">오시는 길 →</a>
+      </div>
+    </div>
+
+    <div class="introPage__right">
+      <!-- ✅ 원하면 사진 바꿔도 됨 -->
+      <img src="images/hero1.jpg" alt="보육원 소개 이미지">
+    </div>
+  </div>
+</section>
   <!-- Stories -->
   <main class="wrap" id="stories">
     <section class="section">
@@ -286,6 +318,36 @@
       </div>
     </div>
   </footer>
+
+  <!-- Intro Popup -->
+<div class="modal" id="introModal" aria-hidden="true" role="dialog" aria-label="소개 팝업">
+  <div class="modal__backdrop" data-intro-close="1"></div>
+
+  <div class="modal__panel introPanel" role="document">
+    <button class="modal__close" id="introClose" aria-label="닫기">×</button>
+
+    <div class="introBody">
+      <h3 class="introTitle">남양주 동물보육원</h3>
+      <p class="introText">
+        사랑과 돌봄이 머무는 곳,<br/>
+        보호가 필요한 아이들이 다시 한 번 따뜻한 가족을 만날 수 있도록 돕는 공간입니다.<br/><br/>
+        유기되거나 파양된 동물들이 상처를 회복하고 믿음을 되찾아
+        새로운 삶을 시작할 수 있도록 정성과 마음을 다한 돌봄을 제공합니다.<br/><br/>
+        오시기 전에는 문의 연락 부탁드려요.
+      </p>
+
+      <label class="introCheck">
+        <input type="checkbox" id="introDontShow" />
+        오늘은 다시 보지 않기
+      </label>
+
+      <div class="introBtns">
+        <a class="introBtn introBtn--primary" href="#contact" id="introGoContact">문의하기</a>
+        <button class="introBtn" id="introOk">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Modal -->
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="이미지 크게보기">
@@ -571,6 +633,7 @@
 
   // footer year
   $("#year").textContent = new Date().getFullYear();
+  
   </script>
 </body>
 </html>
