@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>남양주 동물보육원</title>
+
+  <!-- favicon + logo -->
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/logo.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="top"></div>
+  <a class="skip" href="#stories">본문 바로가기</a>
+
+  <!-- Header -->
+  <header class="topbar" id="home">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#home" aria-label="남양주 동물보호소 홈">
+        <img class="brand__logo" src="images/logo.png" alt="남양주 동물보호소 로고" />
+        <div class="brand__txt">
+          <strong class="brand__name">남양주 동물보육원</strong>
+          <span class="brand__sub">작은 숨결을 지키는 공간</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#stories">브이로그</a>
+        <a href="#cards">남양주 천사들</a>
+        <a href="#contact">문의하기</a>
+        <a href="#map">오시는 길</a>
+      </nav>
+
+      <button class="navBtn" id="navBtn" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobileNav" id="mobileNav" aria-hidden="true">
+      <a href="#stories">V-log</a>
+      <a href="#cards">남양주 천사들</a>
+      <a href="#contact">문의하기</a>
+      <a href="#map">오시는 길</a>
+    </div>
+  </header>
+
+  <!-- Hero Slider -->
+  <section class="hero" aria-label="대표 이미지">
+    <div class="hero__viewport">
+      <div class="hero__track" id="heroTrack">
+       <div class="hero__slide" style="--hero-bg:url('images/hero1.jpg')"><img src="images/hero1.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero2.jpg')"><img src="images/hero2.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero3.jpg')"><img src="images/hero3.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero4.jpg')"><img src="images/hero4.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero5.jpg')"><img src="images/hero5.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero6.jpg')"><img src="images/hero6.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero7.jpg')"><img src="images/hero7.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero8.jpg')"><img src="images/hero8.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero9.jpg')"><img src="images/hero9.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero10.jpg')"><img src="images/hero10.jpg" alt="..."></div>
+<div class="hero__slide" style="--hero-bg:url('images/hero11.jpg')"><img src="images/hero11.jpg" alt="..."></div>
+
+      </div>
+
+      <button class="hero__arrow hero__arrow--left" id="heroPrev" aria-label="이전 이미지">‹</button>
+      <button class="hero__arrow hero__arrow--right" id="heroNext" aria-label="다음 이미지">›</button>
+
+      <div class="hero__dots" id="heroDots" aria-label="슬라이드 표시"></div>
+    </div>
+
+    <div class="wrap hero__copy">
+      <h1>남양주 동물보육원<br/>천사들의 보금자리</h1>
+      <p>한국 반려 동물 관리사 협회 동물보육원</p>
+
+      <div class="hero__chips" role="tablist" aria-label="게시물 분류">
+        <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">전체</button>
+        <button class="chip" data-filter="walk" role="tab" aria-selected="false">산책이야기</button>
+        <button class="chip" data-filter="daily" role="tab" aria-selected="false">일상이야기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories (Instagram + Blog blend) -->
+  <main class="wrap" id="stories">
+    <section class="section">
+      <div class="section__head">
+        <h2>V-log</h2>
+        <p></p>
+      </div>
+
+      <div class="board">
+        <aside class="board__side">
+          <div class="panel">
+            <div class="panel__title">태그로 보기</div>
+            <div class="tagCloud" id="tagCloud"></div>
+            <div class="panel__hint">
+      
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__title">소개</div>
+            <p class="muted">
+              사랑과 돌봄이 머무는 곳,<br>
+               남양주 동물보육원<br>
+남양주동물보육원<br>
+보호가 필요한 동물들이 <br>
+다시 한 번 따뜻한 가족을 만날 수 있도록 돕는 공간입니다.<br><br>
+
+유기되거나 파양된 동물들이<br>
+상처를 회복하고, <br>
+믿음을 되찾아 새로운 삶을<br>
+시작할 수 있도록 <br>
+정성과 마음을 다한 돌봄을 제공합니다.<br><br>
+
+우리는 단순한 보호소를 넘어,<br>
+반려동물의 성격과 건강 상태를<br>
+고려한 맞춤형 케어,<br>
+심리 회복 프로그램,<br>
+책임 있는 입양 시스템을 통해 <br>
+반려동물과 새로운 가족 모두가<br>
+행복해질 수 있는<br>
+연결고리가 되고자 합니다.<br><br>
+
+작은 생명의 소중함을<br>
+지키는 이곳에서,<br>
+우리는 오늘도 ‘또 하나의 가족’을<br>
+기다리는 아이들과<br>
+함께합니다.
+            </p>
+          </div>
+        </aside>
+
+        <div class="board__main">
+          <!-- Featured row (Blog-like list) -->
+          <div class="rowHead">
+            <h3>최근 이야기</h3>
+            <div class="rowNav">
+              <button class="miniArrow" data-scroll="featured" data-dir="-1" aria-label="이전">‹</button>
+              <button class="miniArrow" data-scroll="featured" data-dir="1" aria-label="다음">›</button>
+            </div>
+          </div>
+
+          <div class="hScroll" id="featuredRow" data-kind="carousel" aria-label="최근 이야기 캐러셀">
+            <!-- JS inject -->
+          </div>
+
+          <!-- Grid (Instagram-like) -->
+          <div class="rowHead mt">
+            <h3>모아보기</h3>
+            <div class="rowNav">
+              <button class="miniArrow" data-scroll="grid" data-dir="-1" aria-label="이전">‹</button>
+              <button class="miniArrow" data-scroll="grid" data-dir="1" aria-label="다음">›</button>
+            </div>
+          </div>
+
+          <div class="igWrap" aria-label="인스타그램 스타일 모아보기">
+            <div class="igRail" id="igRail" data-kind="carousel">
+              <!-- JS inject -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Rotator -->
+    <section class="section" id="cards">
+      <div class="section__head">
+        <h2>남양주 천사들</h2>
+        <p>작은동물들의 간단한 일상이야기</p>
+      </div>
+
+      <div class="rotator">
+        <div class="rotator__stage" id="rotatorStage" aria-label="카드 로테이터"></div>
+
+        <button class="rotArrow rotArrow--left" id="rotPrev" aria-label="이전 카드">‹</button>
+        <button class="rotArrow rotArrow--right" id="rotNext" aria-label="다음 카드">›</button>
+
+        <div class="rotator__hint">사진을 누르면 크게 볼 수 있어요</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section__head">
+        <h2>문의하기</h2>
+        <p>전화 / 카카오톡 오픈채팅 / 인스타그램문의</p>
+      </div>
+
+      <div class="contactGrid">
+        <a class="contactCard" href="tel:010-3988-8337" aria-label="전화 걸기">
+          <div class="contactCard__icon">☎</div>
+          <div class="contactCard__txt">
+            <strong>전화</strong>
+            <span class="muted">010-3988-8337</span>
+          </div>
+          <span class="contactCard__go">바로가기 →</span>
+        </a>
+
+        <a class="contactCard" href="https://open.kakao.com/o/soxdPfIh?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAP-bShleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadaddT434c8JNuzH4sdL38HF_jwCwEODj_RY6QIYBl0MPw_MMKB2DXNylEymw_aem_Roe6QMx29OIKeBQsFIlipw" target="_blank" rel="noopener" aria-label="카카오톡 오픈채팅 열기">
+          <div class="contactCard__icon">💬</div>
+          <div class="contactCard__txt">
+            <strong>카카오톡 오픈채팅</strong>
+            <span class="muted">구조 • 탐정 • 입양 • 파양 • 호텔링</span>
+          </div>
+          <span class="contactCard__go">바로가기 →</span>
+        </a>
+
+        <a class="contactCard" href="https://www.instagram.com/namyang_zoo/" target="_blank" rel="noopener" aria-label="인스타그램 열기">
+          <div class="contactCard__icon">📷</div>
+          <div class="contactCard__txt">
+            <strong>인스타그램</strong>
+            <span class="muted">@namyang_zoo</span>
+          </div>
+          <span class="contactCard__go">바로가기 →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section" id="map">
+      <div class="section__head">
+        <h2>오시는 길</h2>
+        <p>오시기 전에 문의연락 부탁드려요.</p>
+      </div>
+
+      <div class="mapCard">
+        <div class="mapCard__meta">
+          <strong>남양주 동물보육원</strong>
+          <span class="muted">진건읍 진건오남로 105번길 16 202호</span>
+        </div>
+
+        <div class="mapFrame" aria-label="지도">
+          <iframe
+            title="남양주 동물보육원 지도"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://map.naver.com/p/entry/place/2053412555?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202602151750&locale=ko&svcName=map_pcv5">
+          </iframe>
+        </div>
+
+        <div class="mapCard__foot">
+          <span class="muted">진건읍 진건오남로 105번길 16 202호, Namyangju</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img src="images/logo.png" alt="" />
+        <div>
+          <strong>남양주 동물보육원</strong>
+          <p class="muted">© <span id="year"></span> namyang_zoo</p>
+        </div>
+      </div>
+
+   <div class="footer__links">
+  <a href="#top">위로</a>
+  <a href="#contact">문의</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="이미지 크게보기">
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" id="modalClose" aria-label="닫기">×</button>
+      <img class="modal__img" id="modalImg" alt="확대 이미지" />
+      <div class="modal__cap" id="modalCap"></div>
+    </div>
+  </div>
+
+  <script>
+  // ===== DATA (여기만 바꾸면 게시물/태그/문구가 바뀜) =====
+  const POSTS = [
+    { id:"b1",  img:"images/blog1.jpg",  cat:"daily", title:"포근한 낮잠",          tags:["#일상","#포근","#말티즈"] },
+    { id:"b2",  img:"images/blog2.jpg",  cat:"daily", title:"오늘의 휴식",          tags:["#일상","#휴식"] },
+    { id:"b3",  img:"images/blog3.jpg",  cat:"daily", title:"새 옷 입었어요",       tags:["#일상","#옷","#강아지"] },
+    { id:"b4",  img:"images/blog4.jpg",  cat:"daily", title:"바닥이 최고",          tags:["#일상","#푸들"] },
+    { id:"b5",  img:"images/blog5.jpg",  cat:"daily", title:"햄스터 근황",          tags:["#일상","#햄스터"] },
+    { id:"b6",  img:"images/blog6.jpg",  cat:"daily", title:"졸린 오후",            tags:["#일상","#푸들"] },
+    { id:"b7",  img:"images/blog7.jpg",  cat:"daily", title:"안녕! 반가워요",       tags:["#일상","#말티즈"] },
+    { id:"b8",  img:"images/blog8.jpg",  cat:"daily", title:"같이 있으면 더 좋아",  tags:["#일상","#친구","#푸들"] },
+    { id:"b9",  img:"images/blog9.png",  cat:"daily", title:"오늘은 귀여움 장착",   tags:["#일상","#코디"] },
+    { id:"b10", img:"images/blog10.jpg", cat:"walk",  title:"산책 출발!",           tags:["#산책","#바람","#샤페이"] },
+    { id:"b11", img:"images/blog11.jpg", cat:"walk",  title:"햇살 좋은 날",         tags:["#산책","#햇살"] },
+    { id:"b12", img:"images/blog12.jpg", cat:"walk",  title:"산책길에서 찰칵",       tags:["#산책","#강아지"] },
+  ];
+
+  const ROTATOR_CARDS = Array.from({length:16}, (_,i) => ({
+    id: "c"+(i+1),
+    img: "images/card"+(i+1)+".jpg",
+    title: "오늘의 카드 #"+(i+1),
+  }));
+
+  // ===== Helpers =====
+  const $ = (s, el=document) => el.querySelector(s);
+  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+
+  function clamp(n,min,max){ return Math.max(min, Math.min(max,n)); }
+
+  // ===== Mobile nav =====
+  const navBtn = $("#navBtn");
+  const mobileNav = $("#mobileNav");
+  navBtn.addEventListener("click", () => {
+    const open = navBtn.getAttribute("aria-expanded") === "true";
+    navBtn.setAttribute("aria-expanded", String(!open));
+    mobileNav.classList.toggle("is-open", !open);
+    mobileNav.setAttribute("aria-hidden", String(open));
+  });
+  $$("#mobileNav a").forEach(a => a.addEventListener("click", () => {
+    navBtn.setAttribute("aria-expanded","false");
+    mobileNav.classList.remove("is-open");
+    mobileNav.setAttribute("aria-hidden","true");
+  }));
+
+  // ===== Hero slider (auto 3s + arrows + swipe) =====
+  const heroTrack = $("#heroTrack");
+  const heroSlides = $$(".hero__slide", heroTrack);
+  const heroDots = $("#heroDots");
+  let heroIdx = 0;
+  let heroTimer = null;
+
+  function renderHeroDots(){
+    heroDots.innerHTML = heroSlides.map((_,i)=>(
+      '<button class="dot '+(i===heroIdx?'is-on':'')+'" aria-label="슬라이드 '+(i+1)+'" data-i="'+i+'"></button>'
+    )).join("");
+    $$(".dot", heroDots).forEach(btn => btn.addEventListener("click", () => {
+      goHero(+btn.dataset.i);
+      restartHero();
+    }));
+  }
+
+  function goHero(i){
+    heroIdx = (i + heroSlides.length) % heroSlides.length;
+    heroTrack.style.transform = `translateX(${-heroIdx*100}%)`;
+    renderHeroDots();
+  }
+
+  function restartHero(){
+    clearInterval(heroTimer);
+    heroTimer = setInterval(() => goHero(heroIdx+1), 3000);
+  }
+
+  $("#heroPrev").addEventListener("click", () => { goHero(heroIdx-1); restartHero(); });
+  $("#heroNext").addEventListener("click", () => { goHero(heroIdx+1); restartHero(); });
+
+  // swipe
+  (function(){
+    let startX=0, dx=0, touching=false;
+    const vp = heroTrack.parentElement;
+    vp.addEventListener("touchstart",(e)=>{ touching=true; startX=e.touches[0].clientX; dx=0; },{passive:true});
+    vp.addEventListener("touchmove",(e)=>{ if(!touching) return; dx=e.touches[0].clientX-startX; },{passive:true});
+    vp.addEventListener("touchend",()=>{
+      if(!touching) return;
+      touching=false;
+      if(Math.abs(dx) > 40){
+        goHero(heroIdx + (dx<0 ? 1 : -1));
+        restartHero();
+      }
+    });
+  })();
+
+  renderHeroDots();
+  goHero(0);
+  restartHero();
+
+  // ===== Posts rendering (featured + ig rail) =====
+  const featuredRow = $("#featuredRow");
+  const igRail = $("#igRail");
+  const tagCloud = $("#tagCloud");
+
+  function postCard(post, variant="featured"){
+    const tags = post.tags.map(t => `<span class="tag">${t}</span>`).join("");
+    const badge = post.cat === "walk" ? "산책이야기" : "일상이야기";
+    return `
+      <article class="${variant==="featured" ? "post" : "ig"}" data-id="${post.id}" data-cat="${post.cat}" data-tags="${post.tags.join(" ")}">
+        <button class="${variant==="featured" ? "post__img" : "ig__img"}" data-open="${post.img}" data-cap="${badge} · ${post.title}">
+          <img src="${post.img}" alt="${post.title}">
+        </button>
+
+        <div class="${variant==="featured" ? "post__body" : "ig__body"}">
+          <div class="${variant==="featured" ? "post__meta" : "ig__meta"}">
+            <span class="badge ${post.cat==="walk"?"is-walk":"is-daily"}">${badge}</span>
+            <span class="muted dotSep">·</span>
+            <span class="muted">${post.title}</span>
+          </div>
+          <div class="${variant==="featured" ? "post__tags" : "ig__tags"}">${tags}</div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderPosts(){
+    // Featured: blog-like bigger cards
+    featuredRow.innerHTML = POSTS.map(p => postCard(p,"featured")).join("");
+
+    // IG rail: smaller cards
+    igRail.innerHTML = POSTS.map(p => postCard(p,"ig")).join("");
+
+    // Tags
+    const allTags = new Map();
+    POSTS.forEach(p => p.tags.forEach(t => allTags.set(t, (allTags.get(t)||0)+1)));
+    tagCloud.innerHTML = ['#전체', ...Array.from(allTags.keys())].map(t => {
+      const isAll = t === '#전체';
+      const count = isAll ? POSTS.length : allTags.get(t);
+      return `<button class="tagChip ${isAll?'is-on':''}" data-tag="${t}">${t}<span class="cnt">${count}</span></button>`;
+    }).join("");
+
+    // bind modal open
+    $$("[data-open]").forEach(btn => {
+      btn.addEventListener("click", () => openModal(btn.dataset.open, btn.dataset.cap));
+    });
+
+    // tag click
+    $$(".tagChip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".tagChip").forEach(b => b.classList.toggle("is-on", b===btn));
+        const tag = btn.dataset.tag;
+        applyFilters(currentCat, tag === "#전체" ? null : tag);
+      });
+    });
+  }
+
+  // ===== Filters: category chips + tags =====
+  let currentCat = "all";
+  let currentTag = null;
+
+  function applyFilters(cat, tag){
+    currentCat = cat;
+    currentTag = tag;
+
+    // update chips
+    $$(".chip").forEach(c => {
+      const on = c.dataset.filter === cat;
+      c.classList.toggle("is-active", on);
+      c.setAttribute("aria-selected", String(on));
+    });
+
+    function match(el){
+      const okCat = (cat==="all") || (el.dataset.cat === cat);
+      const okTag = (!tag) || (el.dataset.tags || "").includes(tag);
+      return okCat && okTag;
+    }
+
+    [...featuredRow.children, ...igRail.children].forEach(el => {
+      el.classList.toggle("is-hidden", !match(el));
+    });
+  }
+
+  $$(".chip").forEach(btn => btn.addEventListener("click", () => {
+    applyFilters(btn.dataset.filter, currentTag);
+  }));
+
+  renderPosts();
+  applyFilters("all", null);
+
+  // ===== Horizontal carousels arrows =====
+  function scrollByDir(el, dir){
+    const amt = Math.max(260, Math.round(el.clientWidth * 0.9));
+    el.scrollBy({ left: dir * amt, behavior: "smooth" });
+  }
+
+  $$("[data-scroll]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const kind = btn.dataset.scroll;
+      const dir = +btn.dataset.dir;
+      const el = kind === "featured" ? featuredRow : igRail;
+      scrollByDir(el, dir);
+    });
+  });
+
+  // ===== Modal =====
+  const modal = $("#modal");
+  const modalImg = $("#modalImg");
+  const modalCap = $("#modalCap");
+  const modalClose = $("#modalClose");
+
+  function openModal(src, cap){
+    modalImg.src = src;
+    modalCap.textContent = cap || "";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden","false");
+    document.body.classList.add("noScroll");
+  }
+  function closeModal(){
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden","true");
+    document.body.classList.remove("noScroll");
+  }
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e) => {
+    if(e.target && e.target.dataset && e.target.dataset.close) closeModal();
+  });
+  window.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  });
+
+   // ===== 3D Card Rotator (센터 1장 Coverflow: auto 3s + arrows + swipe) =====
+  const stage = document.querySelector("#rotatorStage");
+  let rotIdx = 0;
+  let rotTimer = null;
+
+  function renderRotator(){
+    stage.innerHTML = `<div class="rotStack" id="rotStack"></div>`;
+    const stack = document.querySelector("#rotStack");
+
+    stack.innerHTML = ROTATOR_CARDS.map((c,i) => `
+      <button class="rotCard is-hide" data-i="${i}" data-open="${c.img}" data-cap="${c.title}">
+        <img src="${c.img}" alt="${c.title}">
+      </button>
+    `).join("");
+
+    // 모달 열기
+    stack.querySelectorAll(".rotCard").forEach(btn => {
+      btn.addEventListener("click", () => openModal(btn.dataset.open, btn.dataset.cap));
+    });
+
+    updateRotator();
+  }
+
+  function updateRotator(){
+    const cards = Array.from(document.querySelectorAll(".rotCard"));
+    const n = cards.length;
+    if(n === 0) return;
+
+    const left = (rotIdx - 1 + n) % n;
+    const right = (rotIdx + 1) % n;
+
+    cards.forEach((el, i) => {
+      el.classList.remove("is-left","is-right","is-center","is-hide");
+      if(i === rotIdx) el.classList.add("is-center");
+      else if(i === left) el.classList.add("is-left");
+      else if(i === right) el.classList.add("is-right");
+      else el.classList.add("is-hide");
+    });
+  }
+
+  function rotGo(nextIdx){
+    const n = ROTATOR_CARDS.length;
+    rotIdx = (nextIdx + n) % n;
+    updateRotator();
+  }
+
+  function rotRestart(){
+    clearInterval(rotTimer);
+    rotTimer = setInterval(() => rotGo(rotIdx + 1), 3000);
+  }
+
+  document.querySelector("#rotPrev").addEventListener("click", () => { rotGo(rotIdx - 1); rotRestart(); });
+  document.querySelector("#rotNext").addEventListener("click", () => { rotGo(rotIdx + 1); rotRestart(); });
+
+  // swipe (모바일)
+  (function(){
+    let startX=0, dx=0, touching=false;
+    const box = stage.parentElement;
+
+    box.addEventListener("touchstart",(e)=>{ touching=true; startX=e.touches[0].clientX; dx=0; },{passive:true});
+    box.addEventListener("touchmove",(e)=>{ if(!touching) return; dx=e.touches[0].clientX-startX; },{passive:true});
+    box.addEventListener("touchend",()=>{
+      if(!touching) return;
+      touching=false;
+      if(Math.abs(dx) > 35){
+        rotGo(rotIdx + (dx<0 ? 1 : -1));
+        rotRestart();
+      }
+    });
+  })();
+
+  renderRotator();
+  rotRestart();
+
+  // footer year
+  
+  $("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+
+</html>
